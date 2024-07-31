@@ -51,14 +51,30 @@ sheet.cell(row=1, column=5).value = TIME[2]
 
 # If the user gave one extra command line argument and wants to specify flatmates
 if n in [2, 5]:
-    NAMES = []
-    name = input("Type the names of the flatmates, then type \'done\' when you're finished.\nFlatmate 1's name: ")
-    i = 2
-    while name != 'done':
-        NAMES.append(name)
-        name = input(f"Flatmate {i}'s name: ")
-        i += 1
-    print(f"Creating schedule using these flatmates:\n{NAMES}")
+    while True:
+        try:
+            # Read user input for names, split by spaces
+            input_names = input("Type the names of the flatmates separated by spaces: ")
+            NAMES = input_names.split()
+
+            # Check if the list is empty or too short
+            if len(NAMES) < 2:
+                raise ValueError("Please enter at least two names.")
+
+            # Print the list for confirmation
+            print("\nYou entered the following names:")
+            for name in NAMES:
+                print(name)
+
+            # Ask the user if the list is correct
+            confirmation = input("\nDoes this look correct? (y/n): ").strip().lower()
+            if confirmation == 'y':
+                break
+            else:
+                print("Let's try again.\n")
+        except ValueError as e:
+            print(f"Error: {e}")
+            print("Please try again.\n")
 
 # If the user didn't give the extra argument and wants to use the hardcoded names
 else:
