@@ -17,16 +17,15 @@ MONTH = "AUGUST"
 DAY = "THURSDAY"
 TIME = [YEAR, MONTH, DAY]
 
-# If year, month, and starting day were passed as arguments, use those instead of default:
-for i in range(1,n):
-    TIME[i-1] = str(sys.argv[i]).upper() 
-
 # Validate n and print appropriate message
-if n not in [1, 4]:
+if n not in [1, 2, 4, 5]:
     raise ValueError("Invalid number of arguments. Please pass either 0 arguments (for default settings) or 3 arguments (for YEAR, MONTH, DAY).")
-elif n == 1:
+elif n in [1, 2]:
     print(f"Using default settings: YEAR={YEAR}, MONTH={MONTH}, DAY={DAY}")
-elif n == 4:
+elif n in [4, 5]:
+    # If year, month, and starting day were passed as arguments, use those instead of default:
+    for i in range(1,4):
+        TIME[i-1] = str(sys.argv[i]).upper() 
     print(f"Using user input for {TIME[0].lower()}, {TIME[1].lower()}, and {TIME[2].lower()}.")
 
 # Suppress specific warnings related to openpyxl header/footer parsing
@@ -38,17 +37,33 @@ workbook = openpyxl.load_workbook('kitchen_plan.xlsx')
 # Select the active worksheet (or specify a sheet by name)
 sheet = workbook.active  # or workbook['SheetName']
 
+# For naming the output files
 FILESUFFIX = ""
 for i in range(len(TIME)):
     FILESUFFIX += f'_{TIME[i].lower()}'
 
+# Set the year, month, and day in the excel template
 sheet.cell(row=1, column=2).value = TIME[0]
 sheet.cell(row=1, column=3).value = TIME[1]
 sheet.cell(row=1, column=5).value = TIME[2]
 
 # Flatmate names:
-NAMES = ["Sol", "Georg", "Burak", "Ishaan", "Kenna", "Julia", "Sophie", "Paula"]
-print(f"Creating schedule using these flatmates:\n{NAMES}\nTo use a different list of flatmates, edit the python script (I'm not making a GUI)")
+
+# If the user gave one extra command line argument and wants to specify flatmates
+if n in [2, 5]:
+    NAMES = []
+    name = input("Type the names of the flatmates, then type \'done\' when you're finished.\nFlatmate 1's name: ")
+    i = 2
+    while name != 'done':
+        NAMES.append(name)
+        name = input(f"Flatmate {i}'s name: ")
+        i += 1
+    print(f"Creating schedule using these flatmates:\n{NAMES}")
+
+# If the user didn't give the extra argument and wants to use the hardcoded names
+else:
+    NAMES = ["Sol", "Georg", "Burak", "Ishaan", "Kenna", "Julia", "Sophie", "Paula"]
+    print(f"Creating schedule using these flatmates:\n{NAMES}\nTo use a different list of flatmates, edit the python script or give one more command line argument (it can be anything) to provide the flatmate names directly in the command line (I'm not making a GUI)")
 
 # Edit the cells in the columns B-H, rows 5, 7, 9, 11, 13, and 15
 name_index = 0

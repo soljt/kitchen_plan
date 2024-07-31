@@ -25,8 +25,6 @@ Before you begin, ensure you have the following installed:
 
 2. **Navigate to the working directory**
 
-    Just get there, you can do it!.
-
     ```bash
     cd kitchen_plan
 
@@ -39,23 +37,35 @@ Before you begin, ensure you have the following installed:
 
 ## Usage
 
-Great! You're ready to fire this thing up. It takes 0 or 3 command line arguments. If you provide none, it will make your plan from the default date (the first thursday in august, 2024). Just run:
+Great! You're ready to fire this thing up. It takes 0, 1, 3, or 4 command line arguments. If you provide none, it will make your plan from the default date (the first thursday in august, 2024) and use the hardcoded list of flatmate names. Just run:
 
 ```bash
 python kitchen_plan.py 
 ```
 
-Otherwise, you can specify the year, month, and day of the week from which you'd like your plan to start:
+If you want to specify the list of flatmates via the command line, you can run:
+
+```bash
+python kitchen_plan.py edit
+```
+
+If you want to use the hardcoded list of flatmates, but you stil want to specify the year, month, and day of the week from which you'd like your plan to start, you can run:
 
 ```bash
 python kitchen_plan.py 2024 september monday
 ```
 
-In either case, the script will write two files to a newly created folder, `gens`. These two files will be an excel sheet and a pdf of your new kitchen plan. Woohoo!
+And finally, if you want to specify the year, month, day of the week from which you'd like your plan to start, AND the list of flatmates via the command line, you can run:
+
+```bash
+python kitchen_plan.py 2024 september monday edit
+```
+
+In any case, the script will write two files to a newly created (or pre-existing) folder, `gens`. These two files will be an excel sheet and a pdf of your new kitchen plan. Woohoo!
 
 ## Features
 
-There are literally none! If you want to use a different list of flatmates, you'll have to hardcode that in the script yourself in the `NAMES` list! Good luck :)
+There are literally none! Enjoy :)
 
 ## Contributing
 
