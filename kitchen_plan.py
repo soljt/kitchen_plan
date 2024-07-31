@@ -41,9 +41,9 @@ FILESUFFIX = ""
 for i in range(len(TIME)):
     FILESUFFIX += f'_{TIME[i].lower()}'
 
-sheet.cell(row=1, column=2).value = YEAR
-sheet.cell(row=1, column=3).value = MONTH
-sheet.cell(row=1, column=5).value = DAY
+sheet.cell(row=1, column=2).value = TIME[0]
+sheet.cell(row=1, column=3).value = TIME[1]
+sheet.cell(row=1, column=5).value = TIME[2]
 
 # Flatmate names:
 NAMES = ["Sol", "Georg", "Burak", "Ishaan", "Kenna", "Julia", "Sophie", "Paula"]

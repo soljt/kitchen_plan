@@ -10,24 +10,27 @@ This repository contains a script that makes a kitchen plan from a calendar exce
 
 Before you begin, ensure you have the following installed:
 
-- **Python** (version X.X.X or higher)
+- **Python** (version 3.8 or higher)
 - **pip** (Python package installer)
 
 ### Steps
 
 1. **Clone the Repository**  
+
    Begin by cloning this repository to your local machine using the following command:
 
    ```bash
    git clone https://github.com/soljt/kitchen_plan.git
 
 2. **Navigate to the working directory**
+
     Just get there, you can do it!.
 
     ```bash
     cd kitchen_plan
 
 3. **Get the package**
+
     You could use a virtual environment...but come on. There's like two libraries to install. It's all in requirements.txt. Just run this:
 
     ```bash
@@ -46,6 +49,8 @@ Otherwise, you can specify the year, month, and day of the week from which you'd
 ```bash
 python kitchen_plan.py 2024 september monday
 ```
+
+In either case, the script will write two files to a newly created folder, `gens. These two files will be an excel sheet and a pdf of your new kitchen plan. Woohoo!
 
 ## Features
 
