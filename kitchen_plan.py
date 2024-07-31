@@ -32,7 +32,7 @@ elif n == 4:
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl.worksheet.header_footer")
 
 # Load the existing Excel workbook
-workbook = openpyxl.load_workbook('KitchenPlan.xlsx')
+workbook = openpyxl.load_workbook('kitchen_plan.xlsx')
 
 # Select the active worksheet (or specify a sheet by name)
 sheet = workbook.active  # or workbook['SheetName']
@@ -60,7 +60,7 @@ for i in range(6):
         name_index += 1
 
 # Save the edited workbook to a new file or overwrite the existing file
-workbook.save(f'{FOLDER_NAME}\\KitchenPlan{FILESUFFIX}.xlsx')
+workbook.save(f'{FOLDER_NAME}\\kitchen_plan{FILESUFFIX}.xlsx')
 
 ##### PRINT TO PDF #####
 
@@ -68,13 +68,13 @@ workbook.save(f'{FOLDER_NAME}\\KitchenPlan{FILESUFFIX}.xlsx')
 excel = win32.Dispatch('Excel.Application')
 
 # Open the Excel workbook
-workbook = excel.Workbooks.Open(PATH_TO_DIR + f'KitchenPlan{FILESUFFIX}.xlsx')
+workbook = excel.Workbooks.Open(PATH_TO_DIR + f'kitchen_plan{FILESUFFIX}.xlsx')
 
 # Specify the sheet you want to convert to PDF (0 for the active sheet, or specify by name)
 sheet = workbook.Worksheets[0]
 
 # Save the sheet as PDF
-pdf_path = PATH_TO_DIR + f'KitchenPlan{FILESUFFIX}.pdf'
+pdf_path = PATH_TO_DIR + f'kitchen_plan{FILESUFFIX}.pdf'
 sheet.ExportAsFixedFormat(0, pdf_path)
 
 # Close the workbook and Excel application
