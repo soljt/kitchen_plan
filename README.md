@@ -12,6 +12,7 @@ Before you begin, ensure you have the following installed:
 
 - **Python** (version 3.8 or higher)
 - **pip** (Python package installer)
+- **Microsoft Excel** (need this to open `.xlsx` files)
 
 ### Steps
 
@@ -50,11 +51,11 @@ Otherwise, you can specify the year, month, and day of the week from which you'd
 python kitchen_plan.py 2024 september monday
 ```
 
-In either case, the script will write two files to a newly created folder, `gens. These two files will be an excel sheet and a pdf of your new kitchen plan. Woohoo!
+In either case, the script will write two files to a newly created folder, `gens`. These two files will be an excel sheet and a pdf of your new kitchen plan. Woohoo!
 
 ## Features
 
-There are literally none! If you want to use a different list of flatmates, you'll have to hardcode that in the script yourself in the `NAMES list! Good luck :)
+There are literally none! If you want to use a different list of flatmates, you'll have to hardcode that in the script yourself in the `NAMES` list! Good luck :)
 
 ## Contributing
 
