@@ -7,7 +7,7 @@ import os
 
 n = len(sys.argv)
 FOLDER_NAME = "gens"
-PATH_TO_DIR = str(os.getcwd() + "\\gens\\")
+PATH_TO_DIR = str(os.getcwd() + f"\\{FOLDER_NAME}\\")
 os.mkdir(PATH_TO_DIR)
 
 # Set the year, month, and starting day (defaults):
