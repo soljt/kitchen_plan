@@ -19,7 +19,7 @@ TIME = [YEAR, MONTH, DAY]
 
 # Validate n and print appropriate message
 if n not in [1, 2, 4, 5]:
-    raise ValueError("Invalid number of arguments. Please pass either 0 arguments (for default settings) or 3 arguments (for YEAR, MONTH, DAY).")
+    raise ValueError("Invalid number of arguments. Please pass: \n0 arguments (for default settings), \n1 argument (for default dates but manually specified flatmates),\n3 arguments (for YEAR, MONTH, DAY and hardcoded flatmates), or\n4 arguments (for YEAR, MONTH, DAY, and manually specified flatmates).")
 elif n in [1, 2]:
     print(f"Using default settings: YEAR={YEAR}, MONTH={MONTH}, DAY={DAY}")
 elif n in [4, 5]:
